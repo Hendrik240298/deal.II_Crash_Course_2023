@@ -87,6 +87,7 @@ Poisson::Poisson()
 void Poisson::make_grid()
 {
   GridGenerator::hyper_cube(triangulation, -1, 1);
+
   triangulation.refine_global(5);
  
   std::cout << "Number of active cells: " << triangulation.n_active_cells()
@@ -117,6 +118,7 @@ void Poisson::setup_system()
 void Poisson::assemble_system()
 {
   QGauss<2> quadrature_formula(fe.degree + 1);
+
   FEValues<2> fe_values(fe,
                         quadrature_formula,
                         update_values | update_gradients | update_JxW_values);
@@ -137,6 +139,7 @@ void Poisson::assemble_system()
  
       for (const unsigned int q_index : fe_values.quadrature_point_indices())
         {
+          // system matrix
           for (const unsigned int i : fe_values.dof_indices())
             for (const unsigned int j : fe_values.dof_indices())
               cell_matrix(i, j) +=

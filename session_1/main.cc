@@ -147,6 +147,7 @@ void Poisson::assemble_system()
                 /* MISSING CODE:
                 Assemble: grad phi_i(x_q) * grad phi_j(x_q) * dx
                 */
+
  
           // system rhs
           for (const unsigned int i : fe_values.dof_indices())
@@ -160,6 +161,8 @@ void Poisson::assemble_system()
       for (const unsigned int i : fe_values.dof_indices())
         for (const unsigned int j : fe_values.dof_indices())
           system_matrix.add(/* MISSING CODE: ADD local to global*/);
+
+
  
       for (const unsigned int i : fe_values.dof_indices())
         /* MISSING CODE: ADD local to global*/
