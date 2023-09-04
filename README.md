@@ -25,3 +25,10 @@ Exemplary soltions for $d=1,2$ are sketched or shown below.
     <img src="images/poisson_2d.png" alt="Poisson 2D" height="175"/>
 </div>
 
+## Exercise
+The missing gaps are marked by a `/* MISSING CODE /*` comment. The following steps must be done to complete the code:
+
+1. Complete `Poisson::run()`.
+   - This method is used as a central place to call the other methods of the class to solve the problem.
+2. Complete `Poisson::make_grid()` by generating the mesh.
+3. 
