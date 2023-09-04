@@ -1,0 +1,7 @@
+*.cmake
+*check_cache
+CMakeFile/*
+**/CMakeFiles/*
+**/main
+*.vtk
+*Cache.txt
