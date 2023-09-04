@@ -8,12 +8,14 @@ Session 1 aims to solve Poisson's problem and is oriented on [step-3](https://ww
 
 ### Poisson's problem
 Let $\Omega\subset\mathbb{R}^d$ and dimension $d=1,2,3$. Find $u:\bar{\Omega}\to\mathbb{R}$ such that
+
 $$
 \begin{aligned}
-    -\Delta u &= 1 \quad\text{in } \Omega\\
-    u &= 0 \quad\text{on } \partial\Omega.
+-\Delta u &= 1 &&\quad\text{in } \Omega\\
+u &= 0 &&\quad\text{on } \partial\Omega
 \end{aligned}
 $$
+
 Exemplary soltions for $d=1,2$ are sketched or shown below.
 <div style="text-align:center">
     <img src="images/high_fidelity_1d.png" alt="Poisson 2D" height="175"/>
