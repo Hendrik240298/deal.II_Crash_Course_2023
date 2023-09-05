@@ -5,5 +5,4 @@ CMakeFile/*
 **/main
 *.vtk
 *Cache.txt
-.gitkeep
 **Makefile
