@@ -19,7 +19,7 @@ u &= 0 &&\quad\text{on } \partial\Omega
 \end{aligned}
 $$
 
-Exemplary soltions for $d=1,2$ are sketched or shown below.
+Exemplary solutions for $d=1,2$ are sketched or shown below.
 <div style="text-align:center">
     <img src="images/high_fidelity_1d.png" alt="Poisson 2D" height="175"/>
     <img src="images/poisson_2d.png" alt="Poisson 2D" height="175"/>
