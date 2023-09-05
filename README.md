@@ -6,6 +6,12 @@ The course is structured in two sessions. In the first session, the basic layout
 
 In both case, a code skeleton is provided which should be filled in a gap text manner. The sessions' folders can be found by their names. In addition, each session folder contains a solution folder which includes a working code solution.
 
+## Run Code
+1. `cmake -DDEAL_II_DIR=PATH2DEALII .`: build 
+2. `make release`: switch from debug to release mode
+3. `make`: compile code
+4. `make run`: run code
+
 ## Session 1 
 Session 1 aims to solve Poisson's problem and is oriented on [step-3](https://www.dealii.org/current/doxygen/deal.II/step_3.html) of the deal.II tutorial program. 
 
@@ -41,7 +47,7 @@ The missing gaps are marked by `/* MISSING CODE /*` comments. The following step
    7. Set Dirichlet boundary conditions.
 
 #### Bonus
-For further Interaction with the code, there are two bonus exercises that could be done to extend the code. These are marked in the code by `/* BONUS */`, 
+For further Interaction with the code, there are two bonus exercises that could be done to extend the code. These are marked in the code by `/* BONUS */`.
 
 1. Try out and replace the homogeneous Dirichlet BC by non-zero BC.
 2. Investigate the solution on successively refined meshes.
