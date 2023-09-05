@@ -7,6 +7,7 @@ The course is structured in two sessions. In the first session, the basic layout
 In both case, a code skeleton is provided which should be filled in a gap text manner. The sessions' folders can be found by their names. In addition, each session folder contains a solution folder which includes a working code solution.
 
 ## Run Code
+
 1. `cmake -DDEAL_II_DIR=PATH2DEALII .`: build 
 2. `make release`: switch from debug to release mode
 3. `make`: compile code
@@ -51,3 +52,33 @@ For further Interaction with the code, there are two bonus exercises that could 
 
 1. Try out and replace the homogeneous Dirichlet BC by non-zero BC.
 2. Investigate the solution on successively refined meshes.
+
+
+## Session 2
+### Heat equation
+
+Find $u:=u(x,t):\bar{\Omega}\times \bar{I}\to \mathbb{R}$ such that
+$$
+\begin{aligned}
+\rho \partial_t u - \nabla\cdot (\alpha(x) \nabla u) &= f \quad\text{in } \Omega\times
+I,\\
+u &= u_D \quad\text{on } \partial\Omega \times (0,T),\\
+u(0) &= u_0 \quad\text{in } \Omega\times \{t=0\},
+\end{aligned}
+$$
+where $f:\Omega\times I\to \mathbb{R}$ and $u_0:\Omega\to\mathbb{R}$ and $\alpha(x)>0$ and $\rho>0$ are material parameters, and $u_D\geq 0$ is a Dirichlet boundary condition. As an example, $u_0$ is the initial temperature and $a$ is the wall temperature, and $f$ is some heat source.
+
+In this exercise, let $\Omega = [0,\pi]^2$ and $I = [0,20]$ and
+
+- $u_D = 0$,
+- $u_0 = \sin(x_1)\sin(x_2)$,
+- $f = 0$,
+- $\alpha(x) = 1$.
+
+#### Exercise
+In this session.
+
+#### Bonus 
+
+- The code contains the possibility to choose a space-dependent $\alpha(x) \leq 0$. Try to simulate the heat equation with two different heat coefficients.
+- Previously, we choose a homogenous RHS. Try to extend this top a non-zero RHS.

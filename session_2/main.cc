@@ -118,7 +118,7 @@ class InitialValues : public Function<dim> {
 template <int dim>
 double InitialValues<dim>::value(const Point<dim> &p,
                                  const unsigned int component) const {
-  return (std::sin(p[0]) * std::sin(p[1]));
+  return /* MISSING CODE: Return initial condition*/
 }
 
 template <int dim>
@@ -265,16 +265,13 @@ void Step_Heat<dim>::setup_system() {
   std::cout << "   Number of degrees of freedom: " << dof_handler.n_dofs()
             << std::endl;
 
-  // CompressedSparsityPattern c_sparsity(dof_handler.n_dofs());
-  DynamicSparsityPattern c_sparsity(dof_handler.n_dofs());
-  DoFTools::make_sparsity_pattern(dof_handler, c_sparsity);
-  sparsity_pattern.copy_from(c_sparsity);
+  /* MISSING CODE: Create sparsity pattern, cf. Session 1 */
 
   system_matrix.reinit(sparsity_pattern);
 
-  solution.reinit(dof_handler.n_dofs());
-  old_timestep_solution.reinit(dof_handler.n_dofs());
-  system_rhs.reinit(dof_handler.n_dofs());
+  /* MISSING CODE: Init rhs and solution vectors. 
+  Note that in a time-dependent problem, also a vector for 
+  the old solution is needed. */
 }
 
 ///////////////////////////////////////////////////////////
@@ -285,9 +282,7 @@ template <int dim>
 void Step_Heat<dim>::assemble_system() {
   QGauss<dim> quadrature_formula(2);
 
-  FEValues<dim> fe_values(fe, quadrature_formula,
-                          update_values | update_gradients |
-                              update_quadrature_points | update_JxW_values);
+  /* MISSING CODE: Get the fe_values: Which information is needed? */
 
   const unsigned int dofs_per_cell = fe.dofs_per_cell;
   const unsigned int n_q_points = quadrature_formula.size();
@@ -306,9 +301,12 @@ void Step_Heat<dim>::assemble_system() {
   // Right hand side
   const RightHandSide<dim> right_hand_side;
 
-  // Class for nonconstant coefficients
-  const Coefficient<dim> coefficient;
-  std::vector<double> coefficient_values(n_q_points);
+  /* BONUS 1: Initialize nonconstant coefficients
+  ToDo: Comment in the next three lines of code
+  */
+  // // Class for nonconstant coefficients
+  // const Coefficient<dim> coefficient;
+  // std::vector<double> coefficient_values(n_q_points);
 
   double density = 1.0;
 
@@ -329,10 +327,13 @@ void Step_Heat<dim>::assemble_system() {
                                   old_timestep_solution_values);
     fe_values.get_function_gradients(old_timestep_solution,
                                      old_timestep_solution_grads);
-
-    // Update of nonconstant coefficients
-    coefficient.value_list(fe_values.get_quadrature_points(),
-                           coefficient_values);
+  
+    /* BONUS 1: 
+    ToDo: Comment in the next three lines of code
+    */
+    // // Update of nonconstant coefficients
+    // coefficient.value_list(fe_values.get_quadrature_points(),
+    //                        coefficient_values);
 
     // Loop over all quadrature points (evaluating integrals numerically)
     for (unsigned int q_point = 0; q_point < n_q_points; ++q_point) {
@@ -349,20 +350,16 @@ void Step_Heat<dim>::assemble_system() {
           // Mass term from the time derivative
           // Change indices such that (j,i) because test
           // function determines the row in system matrix A
-          // See lecture notes in Chapter 6
+
+          /* MISSING CODE: Add mass matrix contribution to cell matrix*/
+
           cell_matrix(j, i) += density * (fe_values.shape_value(i, q_point) *
                                           fe_values.shape_value(j, q_point) *
                                           fe_values.JxW(q_point));
 
-          cell_matrix(j, i) +=
-              timestep * theta *
-              (  // A) Constant diffusion a=1:
-                  1.0 *
-                  // Nonconstant diffusion coefficient
-                  // coefficient_values[q_point] *
-                  fe_values.shape_grad(i, q_point) *
-                  fe_values.shape_grad(j, q_point) * fe_values.JxW(q_point));
-        }
+          /* MISSING CODE: Add stiffnes matrix contribution to cell matrix */
+          /* BONUS 1: Incorporate nonconstant diffusion coefficient*/
+
 
         cell_rhs(i) +=
             (old_timestep_u * fe_values.shape_value(i, q_point) +
@@ -472,6 +469,7 @@ void Step_Heat<dim>::output_results(const unsigned int cycle) const {
   filename << filename_basis << "2d_" << Utilities::int_to_string(cycle, 2)
             << ".vtk";
 
+
   std::ofstream output(filename.str().c_str());
   data_out.write_vtk(output);
 }
@@ -485,14 +483,14 @@ void Step_Heat<dim>::run() {
             << std::endl;
 
   set_runtime_parameters();
-  make_grid();
-  setup_system();
+
+  /* MISSING CODE: Grid generation + system setup */
 
   // D) Project (possibly nonhomogeneous) initial values
+  // look therefore in InitialValues Class
   {
     AffineConstraints<double> constraints;
     constraints.close();
-
     VectorTools::project(dof_handler, constraints, QGauss<dim>(3),
                          InitialValues<dim>(), solution);
 
@@ -511,8 +509,8 @@ void Step_Heat<dim>::run() {
 
     // Solve for next time step
     old_timestep_solution = solution;
-    assemble_system();
-    solve();
+
+    /* MISSING CODE: ASSEMBLE and solve for next time step*/
 
     // Write solutions
     output_results(timestep_number + 1);
@@ -522,7 +520,7 @@ void Step_Heat<dim>::run() {
 
     time += timestep;
     ++timestep_number;
-  } while (timestep_number <= max_no_timesteps);
+  } while (/* MISSING CODE: Stopping criterion*/);
 }
 
 /////////////////////////////////////////////////////////
@@ -530,9 +528,8 @@ void Step_Heat<dim>::run() {
 int main() {
   deallog.depth_console(0);
 
-  // initialize instance of step-heat class and call run method
-  Step_Heat<2> laplace_problem_2d;
-  laplace_problem_2d.run();
+  // initialize instance of 2d Step_Heat class and call run method
+  /* MSSING CODE: See comment above*/
 
   return 0;
 }
