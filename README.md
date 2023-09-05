@@ -58,14 +58,16 @@ For further Interaction with the code, there are two bonus exercises that could 
 ### Heat equation
 
 Find $u:=u(x,t):\bar{\Omega}\times \bar{I}\to \mathbb{R}$ such that
+
 $$
 \begin{aligned}
-\rho \partial_t u - \nabla\cdot (\alpha(x) \nabla u) &= f \quad\text{in } \Omega\times
+\rho \partial_t u - \nabla\cdot (\alpha(x) \nabla u) &= f &&\quad\text{in } \Omega\times
 I,\\
-u &= u_D \quad\text{on } \partial\Omega \times (0,T),\\
-u(0) &= u_0 \quad\text{in } \Omega\times \{t=0\},
+u &= u_D &&\quad\text{on } \partial\Omega \times (0,T),\\
+u(0) &= u_0 &&\quad\text{in } \Omega\times \{t=0\},
 \end{aligned}
 $$
+
 where $f:\Omega\times I\to \mathbb{R}$ and $u_0:\Omega\to\mathbb{R}$ and $\alpha(x)>0$ and $\rho>0$ are material parameters, and $u_D\geq 0$ is a Dirichlet boundary condition. As an example, $u_0$ is the initial temperature and $a$ is the wall temperature, and $f$ is some heat source.
 
 In this exercise, let $\Omega = [0,\pi]^2$ and $I = [0,20]$ and
