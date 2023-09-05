@@ -25,10 +25,23 @@ Exemplary soltions for $d=1,2$ are sketched or shown below.
     <img src="images/poisson_2d.png" alt="Poisson 2D" height="175"/>
 </div>
 
-## Exercise
-The missing gaps are marked by a `/* MISSING CODE /*` comment. The following steps must be done to complete the code:
+#### Exercise
+The missing gaps are marked by `/* MISSING CODE /*` comments. The following steps must be done to complete the code:
 
 1. Complete `Poisson::run()`.
    - This method is used as a central place to call the other methods of the class to solve the problem.
 2. Complete `Poisson::make_grid()` by generating the mesh.
-3. 
+3. Complete `Poisson::assemble_system()`.
+   1. Get the `FEValues<2> fe_values`.
+   2. Reset the local cell's contributions.
+   3. Assemble system matrix contributions.
+   4. Assemble the rhs contribution. 
+   5. Transfer the local elements to the global matrix.
+   6. Transfer the local elements to the global rhs.
+   7. Set Dirichlet boundary conditions.
+
+#### Bonus
+For further Interaction with the code, there are two bonus exercises that could be done to extend the code. These are marked in the code by `/* BONUS */`, 
+
+1. Try out and replace the homogeneous Dirichlet BC by non-zero BC.
+2. Investigate the solution on successively refined meshes.
