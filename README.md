@@ -85,18 +85,18 @@ The solution for $u$ is illustrated below.
 #### Exercise
 The missing gaps are marked by `/* MISSING CODE /*` comments. The following steps must be done to complete the code:
 
-1. In `main`: Initialize a 2D instance of the `Step_Heat` class and start the solution process.
-2. In `run`: Call the grid generation and the system setup. 
-3. In `system_setup`:
+1. In `main()`: Initialize a 2D instance of the `Step_Heat` class and start the solution process.
+2. In `Step_Heat<dim>::run()`: Call the grid generation and the system setup. 
+3. In `Step_Heat<dim>::setup_system()`:
    1. Create the sparsity pattern. 
    2. Initialize the rhs and solutions vectors. 
       - Note, that a vector to store the old solution is required.
 4. In `InitialValues<dim>::value`: Add the initial condition for the solution.
-5. In `run`:
+5. In `Step_Heat<dim>::run()`:
    1. Call the assemble of the system for each new time step solve.
    2. Solve the LES.
    3. Add the stopping criterion for the time step loop.
-6. In `assemble_system`:
+6. In `Step_Heat<dim>::assemble_system()`:
    1. Add the `fe_values`.
    2. Add mass matrix contribution to `cell_matrix`.
    3. Add stiffness matrix contribution to `cell_matrix`.
