@@ -80,7 +80,27 @@ In this exercise, let $\Omega = [0,\pi]^2$ and $I = [0,20]$ and
 #### Exercise
 In this session.
 
-#### Bonus 
+1. In `main`: Initialize a 2D instance of the `Step_Heat` class and start the solution process.
+2. In `run`: Call the grid generation and the system setup. 
+3. In `system_setup`:
+   1. Create the sparsity pattern. 
+   2. Initialize the rhs and solutions vectors. 
+      - Note, that a vector to store the old solution is required.
+4. In `InitialValues<dim>::value`: Add the initial condition for the solution.
+5. In `run`:
+   1. Call the assemble of the system for each new time step solve.
+   2. Solve the LES.
+   3. Add the stopping criterion for the time step loop.
+6. In `assemble_system`:
+   1. Add the `fe_values`.
+   2. Add mass matrix contribution to `cell_matrix`.
+   3. Add stiffness matrix contribution to `cell_matrix`.
+   4. Add rhs values contributions to `cell_vector`.
+   5. Add old time step solution contributions to `cell_vector`.
 
-- The code contains the possibility to choose a space-dependent $\alpha(x) \leq 0$. Try to simulate the heat equation with two different heat coefficients.
-- Previously, we choose a homogenous RHS. Try to extend this top a non-zero RHS.
+#### Bonus
+
+1. The code contains the possibility to choose a space-dependent $\alpha(x) \leq 0$. Try to simulate the heat equation with two different heat coefficients.
+   1. In `Coefficient<dim>::value`: Return a space dependent heat coefficient.
+   2. In `assemble_system`: Add the `const Coefficient<dim> coefficient` and its contributions in the assembly of `cell_matrix`.
+2. Previously, we choose a homogenous RHS. Try to extend this top a non-zero RHS.

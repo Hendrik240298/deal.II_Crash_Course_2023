@@ -6,3 +6,4 @@ CMakeFile/*
 *.vtk
 *Cache.txt
 **Makefile
+**.vscode/*

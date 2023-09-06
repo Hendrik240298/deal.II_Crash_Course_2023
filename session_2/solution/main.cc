@@ -364,21 +364,25 @@ void Step_Heat<dim>::assemble_system() {
                   fe_values.shape_grad(j, q_point) * fe_values.JxW(q_point));
         }
 
+
+        // rhs of PDE
         cell_rhs(i) +=
-            (old_timestep_u * fe_values.shape_value(i, q_point) +
-             fe_values.shape_value(i, q_point) *
-                 // B) Constant right hand side f=0:
-                 0.0
-             // Non constant right hand side:
-             // right_hand_side.value (fe_values.quadrature_point (q_point))
+            (fe_values.shape_value(i, q_point) *
+            // B) Constant right hand side f=0:
+            0.0
+            // Non constant right hand side:
+            // right_hand_side.value (fe_values.quadrature_point (q_point))
              ) *
             fe_values.JxW(q_point);
 
-        // Old timestep Laplace operator
-        cell_rhs(i) -=
-            timestep * (1.0 - theta) * 1.0 *
-            (old_timestep_grad_u * fe_values.shape_grad(i, q_point)) *
-            fe_values.JxW(q_point);
+        // contribution of old time step solution to rhs
+        cell_rhs(i) += 
+            (
+              old_timestep_u * fe_values.shape_value(i, q_point)
+              - timestep * (1.0 - theta) * 1.0 *
+            (old_timestep_grad_u * fe_values.shape_grad(i, q_point))
+            ) 
+            * fe_values.JxW(q_point);
       }
     }
 

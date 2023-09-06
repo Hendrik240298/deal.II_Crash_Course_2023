@@ -185,10 +185,7 @@ class Coefficient : public Function<dim> {
 template <int dim>
 double Coefficient<dim>::value(const Point<dim> &p,
                                const unsigned int /*component*/) const {
-  if (p[1] >= 0.0)
-    return 20;
-  else
-    return 1;
+  /* Bonus 1: Return the heat coeeficients*/
 }
 
 template <int dim>
@@ -301,7 +298,7 @@ void Step_Heat<dim>::assemble_system() {
   // Right hand side
   const RightHandSide<dim> right_hand_side;
 
-  /* BONUS 1: Initialize nonconstant coefficients
+  /* BONUS 1: Initialize nonconstant coefficients by using Coefficient Class
   ToDo: Comment in the next three lines of code
   */
   // // Class for nonconstant coefficients
@@ -353,29 +350,14 @@ void Step_Heat<dim>::assemble_system() {
 
           /* MISSING CODE: Add mass matrix contribution to cell matrix*/
 
-          cell_matrix(j, i) += density * (fe_values.shape_value(i, q_point) *
-                                          fe_values.shape_value(j, q_point) *
-                                          fe_values.JxW(q_point));
+          /* MISSING CODE: Add stiffness matrix contribution to cell matrix */
+          /* BONUS 1: Incorporate nonconstant diffusion coefficient by using the Coefficient class*/
+        }
 
-          /* MISSING CODE: Add stiffnes matrix contribution to cell matrix */
-          /* BONUS 1: Incorporate nonconstant diffusion coefficient*/
+        /* MISSING CODE: Add rhs values contributions to cell rhs vector */
+        /* Bonus 2: Incorporate nonconstant rhs by RightHandSide class */
 
-
-        cell_rhs(i) +=
-            (old_timestep_u * fe_values.shape_value(i, q_point) +
-             fe_values.shape_value(i, q_point) *
-                 // B) Constant right hand side f=0:
-                 0.0
-             // Non constant right hand side:
-             // right_hand_side.value (fe_values.quadrature_point (q_point))
-             ) *
-            fe_values.JxW(q_point);
-
-        // Old timestep Laplace operator
-        cell_rhs(i) -=
-            timestep * (1.0 - theta) * 1.0 *
-            (old_timestep_grad_u * fe_values.shape_grad(i, q_point)) *
-            fe_values.JxW(q_point);
+        /* MISSING CODE: Add old time step solution contributions to rhs */
       }
     }
 
