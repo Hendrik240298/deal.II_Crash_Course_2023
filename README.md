@@ -21,10 +21,16 @@ Let $\Omega\subset\mathbb{R}^d$ and dimension $d=1,2,3$. Find $u:\bar{\Omega}\to
 
 $$
 \begin{aligned}
--\Delta u &= 1 &&\quad\text{in } \Omega\\
-u &= 0 &&\quad\text{on } \partial\Omega
+-\Delta u &= f &&\quad\text{in } \Omega\\
+u &= g &&\quad\text{on } \partial\Omega
 \end{aligned}
 $$
+
+In this exercise, let:
+
+- $\Omega = [-1,1]^2$
+- $f = 1$,
+- $g = 0$.
 
 Exemplary solutions for $d=1,2$ are sketched or shown below.
 <div style="text-align:center">
@@ -37,7 +43,7 @@ The missing gaps are marked by `/* MISSING CODE /*` comments. The following step
 
 1. Complete `Poisson::run()`.
    - This method is used as a central place to call the other methods of the class to solve the problem.
-2. Complete `Poisson::make_grid()` by generating the mesh.
+2. Complete `Poisson::make_grid()` by generating the mesh, c.f. [deal.II GridGenerator](https://www.dealii.org/current/doxygen/deal.II/namespaceGridGenerator.html#acea0cbcd68e52ce8113d1134b87de403).
 3. Complete `Poisson::assemble_system()`.
    1. Get the `FEValues<2> fe_values`.
    2. Reset the local cell's contributions.
