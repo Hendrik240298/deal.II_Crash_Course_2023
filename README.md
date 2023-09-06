@@ -45,7 +45,7 @@ The missing gaps are marked by `/* MISSING CODE /*` comments. The following step
    - This method is used as a central place to call the other methods of the class to solve the problem.
 2. Complete `Poisson::make_grid()` by generating the mesh, c.f. [deal.II GridGenerator](https://www.dealii.org/current/doxygen/deal.II/namespaceGridGenerator.html#acea0cbcd68e52ce8113d1134b87de403).
 3. Complete `Poisson::assemble_system()`.
-   1. Get the `FEValues<2> fe_values`.
+   1. Get the `FEValues<2> fe_values`, c.f. [FEValues Constructor](https://www.dealii.org/current/doxygen/deal.II/classFEValues.html#a80f982108aa0d834923a57fa328d1c7e) and [FEValues update flags](https://www.dealii.org/current/doxygen/deal.II/group__feaccess.html#gaa94b67d2fdcc390690c523f28019e52f).
    2. Reset the local cell's contributions.
    3. Assemble system matrix contributions.
    4. Assemble the rhs contribution. 
