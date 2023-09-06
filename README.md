@@ -77,6 +77,10 @@ In this exercise, let $\Omega = [0,\pi]^2$ and $I = [0,20]$ and
 - $f = 0$,
 - $\alpha(x) = 1$.
 
+<div style="text-align:center">
+   <img src="images/heat_2d.gif" alt="My Animation" class="center-image" height="200" loop>
+</div>
+
 #### Exercise
 The missing gaps are marked by `/* MISSING CODE /*` comments. The following steps must be done to complete the code:
 
