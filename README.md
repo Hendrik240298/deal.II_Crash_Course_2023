@@ -78,7 +78,7 @@ In this exercise, let $\Omega = [0,\pi]^2$ and $I = [0,20]$ and
 - $\alpha(x) = 1$.
 
 #### Exercise
-In this session.
+The missing gaps are marked by `/* MISSING CODE /*` comments. The following steps must be done to complete the code:
 
 1. In `main`: Initialize a 2D instance of the `Step_Heat` class and start the solution process.
 2. In `run`: Call the grid generation and the system setup. 
@@ -99,6 +99,7 @@ In this session.
    5. Add old time step solution contributions to `cell_vector`.
 
 #### Bonus
+For further Interaction with the code, there are two bonus exercises that could be done to extend the code. These are marked in the code by `/* BONUS 1 */` and `/* BONUS 2 */`, respectively.
 
 1. The code contains the possibility to choose a space-dependent $\alpha(x) \leq 0$. Try to simulate the heat equation with two different heat coefficients.
    1. In `Coefficient<dim>::value`: Return a space dependent heat coefficient.
