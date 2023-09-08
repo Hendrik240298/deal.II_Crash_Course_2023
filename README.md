@@ -63,7 +63,7 @@ For further Interaction with the code, there are two bonus exercises that could 
 ## Session 2
 ### Heat equation
 
-Find $u:=u(x,t):\bar{\Omega}\times \bar{I}\to \mathbb{R}$ such that
+Let $\Omega\subset \mathbb{R}^d$ as before and $I=(0,T)$, with $T>0$. Find $u:=u(x,t):\bar{\Omega}\times \bar{I}\to \mathbb{R}$ such that
 
 $$
 \begin{aligned}
@@ -74,9 +74,9 @@ u(0) &= u_0 &&\quad\text{in } \Omega\times \{t=0\},
 \end{aligned}
 $$
 
-where $f:\Omega\times I\to \mathbb{R}$ and $u_0:\Omega\to\mathbb{R}$ and $\alpha(x)>0$ and $\rho>0$ are material parameters, and $u_D\geq 0$ is a Dirichlet boundary condition. As an example, $u_0$ is the initial temperature and $a$ is the wall temperature, and $f$ is some heat source.
+where $f:\Omega\times I\to \mathbb{R}$ and $u_0:\Omega\to\mathbb{R}$ and $\alpha(x)>0$ and $\rho>0$ are material parameters, and $u_D\geq 0$ is a Dirichlet boundary condition. As an example, $u_0$ is the initial temperature and $u_D$ is the wall temperature, and $f$ is some heat source.
 
-In this exercise, let $\Omega = [0,\pi]^2$ and $I = [0,20]$ and
+In this exercise, let $\Omega = (0,\pi)^2$ and $I = (0,20)$ and
 
 - $u_D = 0$,
 - $u_0 = \sin(x_1)\sin(x_2)$,
