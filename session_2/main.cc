@@ -1,6 +1,6 @@
 /*
- * Author: Thomas Wick (2014)
- * ICES, UT Austin, USA
+ * Authors: Hendrik Fischer, 2023, Leibniz University Hannover, Germany
+ *          Thomas Wick, 2014, ICES, UT Austin, USA; and 2023, Leibniz University Hannover, Germany
  *
  * Features of this program:
  * -------------------------
