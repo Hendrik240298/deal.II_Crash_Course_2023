@@ -15,8 +15,8 @@
  
  *
  * Authors: Wolfgang Bangerth, 1999,
- *          Guido Kanschat, 2011
- *          Hendrik Fischer, 2023
+ *          Guido Kanschat, 2011,
+ *          Hendrik Fischer, 2023,
  *          Thomas Wick, 2023
  */
  
