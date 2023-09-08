@@ -28,7 +28,7 @@ $$
 
 In this exercise, let:
 
-- $\Omega = [-1,1]^2$
+- $\Omega = (-1,1)^2$
 - $f = 1$,
 - $g = 0$.
 
