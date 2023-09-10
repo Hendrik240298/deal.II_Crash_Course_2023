@@ -1,6 +1,6 @@
 # deal.II Crash Course of the 10th deal.II Users and Developers Workshop
 
-This repository contains the source code for the [deal.II](https://www.dealii.org) crash course of the [10th deal.II Users and Developers Workshop](https://www.dealii.org/workshop-2023/). 
+This repository contains the source code for the [deal.II](https://www.dealii.org) crash course of the [10th deal.II Users and Developers Workshop](https://www.dealii.org/workshop-2023/). In addition, the accompanying presentation can be found [here](deal_II_Workshop_Crash_Course_Sep_10_2023.pdf).
 
 The course is structured in two sessions. In the first session, the basic layout of a deal.II program will be covered by solving a stationary Poisson's problem. The second session will be dedicated to the solution of a time-dependent problem. More concrete, a linear Heat equation.
 
