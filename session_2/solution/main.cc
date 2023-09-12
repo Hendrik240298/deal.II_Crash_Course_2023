@@ -109,15 +109,13 @@ class InitialValues : public Function<dim> {
  public:
   InitialValues() : Function<dim>(1) {}
 
-  virtual double value(const Point<dim> &p,
-                       const unsigned int component = 0) const;
+  virtual double value(const Point<dim> &p) const;
 
   virtual void vector_value(const Point<dim> &p, Vector<double> &value) const;
 };
 
 template <int dim>
-double InitialValues<dim>::value(const Point<dim> &p,
-                                 const unsigned int component) const {
+double InitialValues<dim>::value(const Point<dim> &p) const {
   return (std::sin(p[0]) * std::sin(p[1]));
 }
 
@@ -125,7 +123,7 @@ template <int dim>
 void InitialValues<dim>::vector_value(const Point<dim> &p,
                                       Vector<double> &values) const {
   for (unsigned int comp = 0; comp < this->n_components; ++comp)
-    values(comp) = InitialValues<dim>::value(p, comp);
+    values(comp) = InitialValues<dim>::value(p);
 }
 
 ///////////////////////////////////////////////////////////
@@ -178,8 +176,7 @@ class Coefficient : public Function<dim> {
                        const unsigned int component = 0) const;
 
   virtual void value_list(const std::vector<Point<dim> > &points,
-                          std::vector<double> &values,
-                          const unsigned int component = 0) const;
+                          std::vector<double> &values) const;
 };
 
 template <int dim>
@@ -193,8 +190,7 @@ double Coefficient<dim>::value(const Point<dim> &p,
 
 template <int dim>
 void Coefficient<dim>::value_list(const std::vector<Point<dim> > &points,
-                                  std::vector<double> &values,
-                                  const unsigned int component) const {
+                                  std::vector<double> &values) const {
   Assert(values.size() == points.size(),
          ExcDimensionMismatch(values.size(), points.size()));
 
