@@ -367,7 +367,7 @@ void Step_Heat<dim>::assemble_system() {
 
         // rhs of PDE
         cell_rhs(i) +=
-            (fe_values.shape_value(i, q_point) *
+            timestep * (fe_values.shape_value(i, q_point) *
             // B) Constant right hand side f=0:
             0.0
             // Non constant right hand side:
