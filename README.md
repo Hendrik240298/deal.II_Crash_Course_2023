@@ -116,3 +116,12 @@ For further Interaction with the code, there are two bonus exercises that could 
    1. In `Coefficient<dim>::value`: Return a space dependent heat coefficient.
    2. In `assemble_system`: Add the `const Coefficient<dim> coefficient` and its contributions in the assembly of `cell_matrix`.
 2. Previously, we choose a homogenous RHS. Try to extend this top a non-zero RHS.
+
+
+## Contact
+
+Should you have any questions do not hesitate to send us an email at
+
+    fischer@ifam.uni-hannover.de
+    wick@ifam.uni-hannover.de
+  
