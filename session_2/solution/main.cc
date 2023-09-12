@@ -349,7 +349,7 @@ void Step_Heat<dim>::assemble_system() {
           // Mass term from the time derivative
           // Change indices such that (j,i) because test
           // function determines the row in system matrix A
-          // See lecture notes in Chapter 6
+          // See lecture notes in Chapter 6 (https://doi.org/10.15488/11709)
           cell_matrix(j, i) += density * (fe_values.shape_value(i, q_point) *
                                           fe_values.shape_value(j, q_point) *
                                           fe_values.JxW(q_point));
